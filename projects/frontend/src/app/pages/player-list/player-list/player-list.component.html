@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 rtl class="main-heading">{{ 'pldb.players.title' | translate }}</h1>
+    </div>
+  </div>
+  <div class="row align-items-end">
+    <div *ngFor="let player of players" class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
+      <pldb-player-card [player]="player"></pldb-player-card>
+    </div>
+  </div>
+</div>

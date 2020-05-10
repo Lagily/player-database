@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-ngrx-material-starter": {
+    "frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -11,35 +11,29 @@
           "style": "scss"
         }
       },
-      "root": "projects/angular-ngrx-material-starter",
-      "sourceRoot": "projects/angular-ngrx-material-starter/src",
-      "prefix": "anms",
+      "root": "projects/frontend",
+      "sourceRoot": "projects/frontend/src",
+      "prefix": "pldb",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-ngrx-material-starter",
-            "index": "projects/angular-ngrx-material-starter/src/index.html",
-            "main": "projects/angular-ngrx-material-starter/src/main.ts",
-            "polyfills": "projects/angular-ngrx-material-starter/src/polyfills.ts",
-            "tsConfig": "projects/angular-ngrx-material-starter/tsconfig.app.json",
+            "outputPath": "dist/frontend",
+            "index": "projects/frontend/src/index.html",
+            "main": "projects/frontend/src/main.ts",
+            "polyfills": "projects/frontend/src/polyfills.ts",
+            "tsConfig": "projects/frontend/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "projects/angular-ngrx-material-starter/src/favicon.ico",
-              "projects/angular-ngrx-material-starter/src/assets"
-            ],
-            "styles": [
-              "projects/angular-ngrx-material-starter/src/styles-app-loading.scss",
-              "projects/angular-ngrx-material-starter/src/styles.scss"
-            ],
+            "assets": ["projects/frontend/src/favicon.ico", "projects/frontend/src/assets"],
+            "styles": ["projects/frontend/src/styles-app-loading.scss", "projects/frontend/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/angular-ngrx-material-starter/src/environments/environment.ts",
-                  "with": "projects/angular-ngrx-material-starter/src/environments/environment.prod.ts"
+                  "replace": "projects/frontend/src/environments/environment.ts",
+                  "with": "projects/frontend/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -83,43 +77,37 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-ngrx-material-starter:build"
+            "browserTarget": "frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-ngrx-material-starter:build:production"
+              "browserTarget": "frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-ngrx-material-starter:build"
+            "browserTarget": "frontend:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/angular-ngrx-material-starter/src/test.ts",
-            "polyfills": "projects/angular-ngrx-material-starter/src/polyfills.ts",
-            "tsConfig": "projects/angular-ngrx-material-starter/tsconfig.spec.json",
-            "karmaConfig": "projects/angular-ngrx-material-starter/karma.conf.js",
-            "assets": [
-              "projects/angular-ngrx-material-starter/src/favicon.ico",
-              "projects/angular-ngrx-material-starter/src/assets"
-            ],
-            "styles": [
-              "projects/angular-ngrx-material-starter/src/styles-app-loading.scss",
-              "projects/angular-ngrx-material-starter/src/styles.scss"
-            ],
+            "main": "projects/frontend/src/test.ts",
+            "polyfills": "projects/frontend/src/polyfills.ts",
+            "tsConfig": "projects/frontend/tsconfig.spec.json",
+            "karmaConfig": "projects/frontend/karma.conf.js",
+            "assets": ["projects/frontend/src/favicon.ico", "projects/frontend/src/assets"],
+            "styles": ["projects/frontend/src/styles-app-loading.scss", "projects/frontend/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "test": {
               "fileReplacements": [
                 {
-                  "replace": "projects/angular-ngrx-material-starter/src/environments/environment.ts",
-                  "with": "projects/angular-ngrx-material-starter/src/environments/environment.test.ts"
+                  "replace": "projects/frontend/src/environments/environment.ts",
+                  "with": "projects/frontend/src/environments/environment.test.ts"
                 }
               ]
             }
@@ -128,28 +116,24 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "projects/angular-ngrx-material-starter/tsconfig.app.json",
-              "projects/angular-ngrx-material-starter/tsconfig.spec.json",
-              "projects/angular-ngrx-material-starter/e2e/tsconfig.json"
-            ],
+            "tsConfig": ["projects/frontend/tsconfig.app.json", "projects/frontend/tsconfig.spec.json", "projects/frontend/e2e/tsconfig.json"],
             "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/angular-ngrx-material-starter/e2e/protractor.conf.js",
-            "devServerTarget": "angular-ngrx-material-starter:serve"
+            "protractorConfig": "projects/frontend/e2e/protractor.conf.js",
+            "devServerTarget": "frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-ngrx-material-starter:serve:production"
+              "devServerTarget": "frontend:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "angular-ngrx-material-starter"
+  "defaultProject": "frontend"
 }

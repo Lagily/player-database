@@ -1,0 +1,44 @@
+<div class="container" rtl>
+
+  <div class="row">
+    <div class="col-12">
+      <h1 class="main-heading">{{ 'pldb.examples.notifications.title' | translate }}</h1>
+    </div>
+  </div>
+  
+  <div class="row item" [ngClass]="routeAnimationsElements">
+    <button mat-raised-button class="col-3 default" (click)="default()">
+      {{ 'pldb.examples.notifications.default.title' | translate }}
+    </button>
+    <p class="col-9">{{ 'pldb.examples.notifications.default.description' | translate }}</p>
+  </div>
+
+  <div class="row item" [ngClass]="routeAnimationsElements">
+    <button mat-raised-button class="col-3 information" (click)="info()">
+      {{ 'pldb.examples.notifications.info.title' | translate }}
+    </button>
+    <p class="col-9">{{ 'pldb.examples.notifications.info.description' | translate }}</p>
+  </div>
+
+  <div class="row item" [ngClass]="routeAnimationsElements">
+    <button mat-raised-button class="col-3 success" (click)="success()">
+      {{ 'pldb.examples.notifications.success.title' | translate }}
+    </button>
+    <p class="col-9">{{ 'pldb.examples.notifications.success.description' | translate }}</p>
+  </div>
+
+  <div class="row item" [ngClass]="routeAnimationsElements">
+    <button mat-raised-button class="col-3 warning" (click)="warn()">
+      {{ 'pldb.examples.notifications.warning.title' | translate }}
+    </button>
+    <p class="col-9">{{ 'pldb.examples.notifications.warning.description' | translate }}</p>
+  </div>
+
+  <div class="row item" [ngClass]="routeAnimationsElements" >
+    <button mat-raised-button class="col-3 error" (click)="error()">
+      {{ 'pldb.examples.notifications.error.title' | translate }}
+    </button>
+    <p class="col-9">{{ 'pldb.examples.notifications.error.description' | translate }}</p>
+  </div>
+
+</div>

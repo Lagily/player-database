@@ -1,0 +1,72 @@
+<mat-card>
+  <mat-card-title style="display: flex;">
+    <img class="player-image" style="margin-right: 10px" [src]="_player.image" />{{ name(player) }}
+  </mat-card-title>
+  <mat-card-subtitle rtl>
+    <mat-chip-list *ngIf="_player.tags" aria-label="tags">
+      <mat-chip *ngFor="let tag of _player.tags">{{ tag }}</mat-chip>
+    </mat-chip-list>
+    <mat-chip-list *ngIf="_player.swiss || _player.sesfMember" aria-label="tags">
+      <mat-chip *ngIf="_player.swiss" style="background-color: #d52b1e; color: white">Swiss Citizen</mat-chip>
+      <mat-chip *ngIf="_player.sesfMember" style="background-color: #d52b1e; color: white">SESF Member</mat-chip>
+    </mat-chip-list>
+  </mat-card-subtitle>
+  <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel *ngIf="_player.timeline">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Career Timeline
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-list role="list">
+          <mat-list-item *ngFor="let entry of _player.timeline" role="listitem">
+            <span style="font-weight: bold" matLine>{{
+              entry.start | date: "y/MM"
+            }}</span>
+            <p matLine>{{ entry.content }}</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel *ngIf="_player.achievements">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Achievements
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-list role="list">
+          <mat-list-item *ngFor="let entry of _player.achievements" role="listitem">
+            <span style="font-weight: bold" matLine>{{
+              entry.tournament.name + " (" + entry.tournament.edition + ")"
+            }}</span>
+            <p matLine>
+              <mat-icon>
+                <fa-icon icon="trophy" class="gold-trophy"></fa-icon>
+              </mat-icon>
+            </p>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+  <mat-card-actions>
+    <a *ngIf="_player.twitter" mat-icon-button [href]="_player.twitter" target="_blank">
+      <mat-icon matTooltip="Twitter">
+        <fa-icon [icon]="['fab', 'twitter']"></fa-icon>
+      </mat-icon>
+    </a>
+    <a *ngIf="_player.instagram" mat-icon-button [href]="_player.instagram" target="_blank">
+      <mat-icon matTooltip="Instagram">
+        <fa-icon [icon]="['fab', 'instagram']"></fa-icon>
+      </mat-icon>
+    </a>
+
+    <a *ngIf="_player.gamepedia" mat-icon-button [href]="_player.gamepedia" target="_blank">
+      <mat-icon matTooltip="Gamepedia">
+        <fa-icon icon="info"></fa-icon>
+      </mat-icon>
+    </a>
+  </mat-card-actions>
+</mat-card>

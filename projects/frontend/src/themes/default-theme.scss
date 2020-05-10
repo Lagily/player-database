@@ -1,0 +1,5 @@
+$pldb-primary: mat-palette($mat-indigo, 800, 300, 900);
+$pldb-accent: mat-palette($mat-light-blue);
+$pldb-warn: mat-palette($mat-pink, 600);
+
+$pldb-theme: mat-light-theme($pldb-primary, $pldb-accent, $pldb-warn);

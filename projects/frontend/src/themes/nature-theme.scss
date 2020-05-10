@@ -1,0 +1,5 @@
+$pldb-nature-primary: mat-palette($mat-brown, 700, 300, 900);
+$pldb-nature-accent: mat-palette($mat-deep-purple, 300);
+$pldb-nature-warn: mat-palette($mat-red, 600);
+
+$pldb-nature-theme: mat-light-theme($pldb-nature-primary, $pldb-nature-accent, $pldb-nature-warn);
