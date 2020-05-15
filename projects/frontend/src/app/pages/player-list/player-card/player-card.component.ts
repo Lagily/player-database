@@ -7,6 +7,11 @@ interface AggregatedAchievement {
   impacts: AchievementImpact[];
   ranks: (number | undefined)[];
 }
+interface Achievements {
+  aggregatedAchievements: AggregatedAchievement[];
+  numberOfWins: number;
+  numberOfOrganized: number;
+}
 
 @Component({
   selector: "pldb-player-card",
@@ -16,7 +21,7 @@ interface AggregatedAchievement {
 })
 export class PlayerCardComponent implements OnInit {
   _player: Player;
-  achievements: AggregatedAchievement[];
+  _achievements: Achievements;
 
   @Input()
   set player(player: Player) {
@@ -28,10 +33,19 @@ export class PlayerCardComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // Workaround for angular component issue #13870
+  disableAnimation = true;
+  ngAfterViewInit(): void {
+    // timeout required to avoid the dreaded 'ExpressionChangedAfterItHasBeenCheckedError'
+    setTimeout(() => (this.disableAnimation = false));
+  }
+
   setAchievements(player: Player) {
-    this.achievements = [];
+    let numberOfOrganized = 0;
+    let numberOfWins = 0;
+    const achievements = [] as AggregatedAchievement[];
     player.achievements.forEach(a => {
-      let achievement = this.achievements[a.tournament.name] as AggregatedAchievement | undefined;
+      let achievement = achievements[a.tournament.name] as AggregatedAchievement | undefined;
       if (!achievement) {
         achievement = {
           tournamentName: a.tournament.name,
@@ -39,12 +53,20 @@ export class PlayerCardComponent implements OnInit {
           impacts: [],
           ranks: []
         };
-        this.achievements[a.tournament.name] = achievement;
+        achievements[a.tournament.name] = achievement;
       }
       achievement.editions.push(a.tournament.edition);
       achievement.impacts.push(a.impact);
       achievement.ranks.push(a.rank);
+
+      if (a.impact === "participant" && a.rank === 1) {
+        numberOfWins++;
+      } else if (a.impact === "organizer") {
+        numberOfOrganized++;
+      }
     });
+
+    this._achievements = { aggregatedAchievements: Object.values(achievements), numberOfOrganized, numberOfWins };
   }
 
   openLink(link: string) {

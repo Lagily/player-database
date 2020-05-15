@@ -20,8 +20,22 @@ mat-card {
       border-radius: 50%;
     }
   }
+
   mat-card-subtitle {
     min-height: 60px;
+
+    .team {
+      padding: 4px;
+
+      .team-logo {
+        max-height: 40px;
+      }
+
+      span {
+        font-weight: bolder;
+        color: black;
+      }
+    }
   }
 
   @media (max-width: map-get($grid-breakpoints, sm)) {
@@ -42,6 +56,26 @@ mat-card {
   a[mat-icon-button] {
     position: relative;
     left: 5px;
+  }
+
+  mat-card-actions {
+    button {
+      float: right;
+    }
+  }
+}
+
+.achievements-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  span {
+    font-weight: bold;
+  }
+
+  span:not(:last-child)::after {
+    content: ",";
   }
 }
 

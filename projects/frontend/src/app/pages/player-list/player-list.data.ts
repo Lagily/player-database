@@ -10,6 +10,12 @@ export interface Tournament {
   edition: string;
 }
 
+export interface Team {
+  id: string;
+  name: string;
+  logo: string;
+}
+
 export type AchievementImpact = "participant" | "organizer";
 
 export interface Achievement {
@@ -31,15 +37,21 @@ export interface Player {
   gamepedia?: string;
   swiss: boolean;
   sesfMember: boolean;
+  team?: Team;
 }
 
-export const players: Player[] = [
+const players: Player[] = [
   {
     firstName: "Ali",
     lastName: "Nasserzadeh",
     nickName: "Lagily",
     image: "https://pbs.twimg.com/profile_images/1124377678247809024/qaVUpLps_400x400.png",
     tags: ["LoL", "Mid", "Coach", "Manager"],
+    team: {
+      name: "myInsanity",
+      id: "1",
+      logo: "https://gamepedia.cursecdn.com/lolesports_gamepedia_en/0/0b/MYinsanitylogo_square.png?version=cf76314a83d0d2b78c967734f11274d7"
+    },
     timeline: [
       { start: new Date("2015-06"), content: "BEV Mid Laner" },
       {
@@ -102,3 +114,9 @@ export const players: Player[] = [
     sesfMember: true
   }
 ];
+
+for (let i = 0; i < 3; i++) {
+  players.push(players[0]);
+}
+
+export { players };

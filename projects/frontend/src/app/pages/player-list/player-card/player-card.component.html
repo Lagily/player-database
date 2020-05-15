@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title style="display: flex;">
-    <img class="player-image" style="margin-right: 10px" [src]="_player.image" />{{ name(player) }}
+    <img class="player-image" style="margin-right: 10px" [src]="_player.image" /><a href="#">{{ name(_player) }}</a>
   </mat-card-title>
   <mat-card-subtitle rtl>
     <mat-chip-list *ngIf="_player.tags" aria-label="tags">
@@ -10,10 +10,15 @@
       <mat-chip *ngIf="_player.swiss" style="background-color: #d52b1e; color: white">Swiss Citizen</mat-chip>
       <mat-chip *ngIf="_player.sesfMember" style="background-color: #d52b1e; color: white">SESF Member</mat-chip>
     </mat-chip-list>
+    <div *ngIf="_player.team" class="team">
+      <img [src]="_player.team.logo" class="team-logo" />
+      <span>{{_player.team.name}}</span>
+    </div>
+
   </mat-card-subtitle>
-  <mat-card-content>
+  <mat-card-content [@.disabled]="disableAnimation">
     <mat-accordion>
-      <mat-expansion-panel *ngIf="_player.timeline">
+      <mat-expansion-panel [expanded]="false" *ngIf="_player.timeline">
         <mat-expansion-panel-header>
           <mat-panel-title>
             Career Timeline
@@ -29,25 +34,18 @@
           </mat-list-item>
         </mat-list>
       </mat-expansion-panel>
-      <mat-expansion-panel *ngIf="_player.achievements">
+      <mat-expansion-panel [expanded]="false" *ngIf="_player.achievements">
         <mat-expansion-panel-header>
           <mat-panel-title>
             Achievements
           </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <mat-list role="list">
-          <mat-list-item *ngFor="let entry of _player.achievements" role="listitem">
-            <span style="font-weight: bold" matLine>{{
-              entry.tournament.name + " (" + entry.tournament.edition + ")"
-            }}</span>
-            <p matLine>
-              <mat-icon>
-                <fa-icon icon="trophy" class="gold-trophy"></fa-icon>
-              </mat-icon>
-            </p>
-          </mat-list-item>
-        </mat-list>
+        <span>Lagily has won {{_achievements.numberOfWins}} tournaments.</span>
+        <div class="achievements-list">
+            <span *ngFor="let entry of _achievements.aggregatedAchievements">{{
+            entry.tournamentName
+          }}</span></div>
       </mat-expansion-panel>
     </mat-accordion>
   </mat-card-content>
@@ -68,5 +66,7 @@
         <fa-icon icon="info"></fa-icon>
       </mat-icon>
     </a>
+
+    <button mat-button>Contact</button>
   </mat-card-actions>
 </mat-card>
