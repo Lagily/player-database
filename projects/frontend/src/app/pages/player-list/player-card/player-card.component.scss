@@ -74,15 +74,23 @@ mat-card {
     font-weight: bold;
   }
 
-  span:not(:last-child)::after {
+  /*span:not(:last-child)::after {
     content: ",";
-  }
+  }*/
+}
+
+.trophy:not(:last-child) {
+  padding-right: 2px;
 }
 
 .gold-trophy {
   color: goldenrod;
 }
 
-.gold-trophy::after {
-  content: " #1";
+.silver-trophy {
+  color: silver;
+}
+
+.bronze-trophy {
+  color: brown;
 }

@@ -49,6 +49,7 @@ import { BigInputComponent } from "./big-input/big-input/big-input.component";
 import { BigInputActionComponent } from "./big-input/big-input-action/big-input-action.component";
 import { RtlSupportDirective } from "./rtl-support/rtl-support.directive";
 import { MatExpansionModule } from "@angular/material/expansion";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   imports: [
@@ -74,7 +75,8 @@ import { MatExpansionModule } from "@angular/material/expansion";
     MatDividerModule,
     MatExpansionModule,
 
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule
   ],
   declarations: [BigInputComponent, BigInputActionComponent, RtlSupportDirective],
   exports: [
@@ -108,7 +110,8 @@ import { MatExpansionModule } from "@angular/material/expansion";
 
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
+    RtlSupportDirective,
+    NgbModule
   ]
 })
 export class SharedModule {

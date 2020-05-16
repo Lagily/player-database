@@ -56,3 +56,6 @@
   @include angular-material-theme($pldb-nature-theme);
   @include custom-components-theme($pldb-nature-theme);
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

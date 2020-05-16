@@ -6,6 +6,9 @@ interface AggregatedAchievement {
   editions: string[];
   impacts: AchievementImpact[];
   ranks: (number | undefined)[];
+  gold: string[];
+  silver: string[];
+  bronze: string[];
 }
 interface Achievements {
   aggregatedAchievements: AggregatedAchievement[];
@@ -51,7 +54,10 @@ export class PlayerCardComponent implements OnInit {
           tournamentName: a.tournament.name,
           editions: [],
           impacts: [],
-          ranks: []
+          ranks: [],
+          gold: [],
+          silver: [],
+          bronze: []
         };
         achievements[a.tournament.name] = achievement;
       }
@@ -59,8 +65,17 @@ export class PlayerCardComponent implements OnInit {
       achievement.impacts.push(a.impact);
       achievement.ranks.push(a.rank);
 
-      if (a.impact === "participant" && a.rank === 1) {
-        numberOfWins++;
+      if (a.impact === "participant") {
+        if (a.rank === 1) {
+          numberOfWins++;
+          achievement.gold.push(a.tournament.edition);
+        }
+        else if (a.rank === 2) {
+          achievement.silver.push(a.tournament.edition);
+        }
+        else if (a.rank === 2) {
+          achievement.bronze.push(a.tournament.edition);
+        }
       } else if (a.impact === "organizer") {
         numberOfOrganized++;
       }

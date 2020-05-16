@@ -40,12 +40,20 @@
             Achievements
           </mat-panel-title>
         </mat-expansion-panel-header>
-
+        
         <span>Lagily has won {{_achievements.numberOfWins}} tournaments.</span>
-        <div class="achievements-list">
-            <span *ngFor="let entry of _achievements.aggregatedAchievements">{{
-            entry.tournamentName
-          }}</span></div>
+        <div class="achievements-list" style="padding-top: 5px;">
+          <ng-container *ngFor="let achievement of _achievements.aggregatedAchievements">
+            <span *ngIf="achievement.bronze.length + achievement.silver.length + achievement.gold.length > 0">
+              
+              <fa-icon *ngFor="let trophy of achievement.gold" icon="trophy" class="trophy gold-trophy" title="First place"></fa-icon> 
+              <fa-icon *ngFor="let trophy of achievement.silver" icon="trophy" class="trophy silver-trophy" title="Second place"></fa-icon> 
+              <fa-icon *ngFor="let trophy of achievement.bronze" icon="trophy" class="trophy bronze-trophy" title="Third place"></fa-icon> 
+              <span [ngbTooltip]="editionsTooltip">{{achievement.tournamentName}}</span></span>
+
+              <ng-template #editionsTooltip><ul style="padding: 2px"><li *ngFor="let edition of achievement.editions">{{edition}}</li></ul></ng-template>
+        </ng-container>
+          </div>
       </mat-expansion-panel>
     </mat-accordion>
   </mat-card-content>
