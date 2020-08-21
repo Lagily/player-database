@@ -10,11 +10,14 @@ import { authReducer } from "./auth/auth.reducer";
 import { RouterStateUrl } from "./router/router.state";
 import { settingsReducer } from "./settings/settings.reducer";
 import { SettingsState } from "./settings/settings.model";
+import { PlayersState } from './players/players.models';
+import { playersReducer } from './players/players.reducer';
 
 export const reducers: ActionReducerMap<AppState> = {
   auth: authReducer,
   settings: settingsReducer,
-  router: routerReducer
+  router: routerReducer,
+  players: playersReducer
 };
 
 export const metaReducers: MetaReducer<AppState>[] = [initStateFromLocalStorage];
@@ -31,8 +34,11 @@ export const selectSettingsState = createFeatureSelector<AppState, SettingsState
 
 export const selectRouterState = createFeatureSelector<AppState, RouterReducerState<RouterStateUrl>>("router");
 
+export const selectPlayersState = createFeatureSelector<AppState, PlayersState>("players");
+
 export interface AppState {
   auth: AuthState;
   settings: SettingsState;
   router: RouterReducerState<RouterStateUrl>;
+  players: PlayersState;
 }

@@ -24,8 +24,14 @@
             "polyfills": "projects/frontend/src/polyfills.ts",
             "tsConfig": "projects/frontend/tsconfig.app.json",
             "aot": true,
-            "assets": ["projects/frontend/src/favicon.ico", "projects/frontend/src/assets"],
-            "styles": ["projects/frontend/src/styles-app-loading.scss", "projects/frontend/src/styles.scss"],
+            "assets": [
+              "projects/frontend/src/favicon.ico",
+              "projects/frontend/src/assets"
+            ],
+            "styles": [
+              "projects/frontend/src/styles-app-loading.scss",
+              "projects/frontend/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -98,8 +104,14 @@
             "polyfills": "projects/frontend/src/polyfills.ts",
             "tsConfig": "projects/frontend/tsconfig.spec.json",
             "karmaConfig": "projects/frontend/karma.conf.js",
-            "assets": ["projects/frontend/src/favicon.ico", "projects/frontend/src/assets"],
-            "styles": ["projects/frontend/src/styles-app-loading.scss", "projects/frontend/src/styles.scss"],
+            "assets": [
+              "projects/frontend/src/favicon.ico",
+              "projects/frontend/src/assets"
+            ],
+            "styles": [
+              "projects/frontend/src/styles-app-loading.scss",
+              "projects/frontend/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -116,8 +128,14 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["projects/frontend/tsconfig.app.json", "projects/frontend/tsconfig.spec.json", "projects/frontend/e2e/tsconfig.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "projects/frontend/tsconfig.app.json",
+              "projects/frontend/tsconfig.spec.json",
+              "projects/frontend/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -135,5 +153,8 @@
       }
     }
   },
-  "defaultProject": "frontend"
+  "defaultProject": "frontend",
+  "cli": {
+    "analytics": false
+  }
 }

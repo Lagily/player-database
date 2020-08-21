@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="row">
-    <div *ngFor="let player of players" class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
+    <div *ngFor="let player of players$ | async" class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
       <pldb-player-card [player]="player"></pldb-player-card>
     </div>
   </div>

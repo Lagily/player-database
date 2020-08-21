@@ -22,6 +22,7 @@ import { environment } from "../../environments/environment";
 
 import { AppState, reducers, metaReducers, selectRouterState } from "./core.state";
 import { AuthEffects } from "./auth/auth.effects";
+import { PlayersEffects } from "./players/players.effects";
 import { selectIsAuthenticated, selectAuth } from "./auth/auth.selectors";
 import { authLogin, authLogout } from "./auth/auth.actions";
 import { AuthGuardService } from "./auth/auth-guard.service";
@@ -86,7 +87,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([AuthEffects, SettingsEffects, GoogleAnalyticsEffects]),
+    EffectsModule.forRoot([AuthEffects, SettingsEffects, GoogleAnalyticsEffects, PlayersEffects]),
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
