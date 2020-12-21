@@ -31,9 +31,7 @@ export class AppComponent implements OnInit {
   logo = require("../../assets/logo.png");
   languages = ["en", "fr"];
   navigation = [
-    { link: "about", label: "pldb.menu.about" },
     { link: "player-list", label: "pldb.menu.features" },
-    { link: "examples", label: "pldb.menu.examples" }
   ];
   navigationSideMenu = [...this.navigation, { link: "settings", label: "pldb.menu.settings" }];
 

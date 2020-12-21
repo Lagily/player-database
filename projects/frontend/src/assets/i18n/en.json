@@ -1,6 +1,6 @@
 {
   "pldb.about.change-theme": "Change Theme",
-  "pldb.about.check-blogs": "or check blogs about",
+  "pldb.about.check-blogs": "or add yourself to the database",
   "pldb.about.contributors.description1": "Want to start contributing to open source with Angular?",
   "pldb.about.contributors.description2": "Leave your mark and join the growing team of contributors!",
   "pldb.about.contributors.description3": "Get started by having a look on ",
@@ -33,7 +33,7 @@
   "pldb.header.github": "Project Github Repository",
   "pldb.menu.about": "Home",
   "pldb.menu.examples": "Examples",
-  "pldb.menu.features": "Players",
+  "pldb.menu.features": "Home",
   "pldb.menu.login": "Login",
   "pldb.menu.logout": "Logout",
   "pldb.menu.settings": "Settings",

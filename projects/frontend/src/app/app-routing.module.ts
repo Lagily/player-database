@@ -8,10 +8,6 @@ const routes: Routes = [
     pathMatch: "full"
   },
   {
-    path: "about",
-    loadChildren: () => import("./pages/about/about.module").then(m => m.AboutModule)
-  },
-  {
     path: "player-list",
     loadChildren: () => import("./pages/player-list/player-list.module").then(m => m.FeatureListModule)
   },
@@ -20,20 +16,14 @@ const routes: Routes = [
     loadChildren: () => import("./pages/settings/settings.module").then(m => m.SettingsModule)
   },
   {
-    path: "examples",
-    loadChildren: () => import("./pages/examples/examples.module").then(m => m.ExamplesModule)
-  },
-  {
     path: "**",
-    redirectTo: "about"
+    redirectTo: "player-list"
   }
 ];
 
 @NgModule({
-  // useHash supports github.io demo page, remove in your app
   imports: [
     RouterModule.forRoot(routes, {
-      useHash: true,
       scrollPositionRestoration: "enabled",
       preloadingStrategy: PreloadAllModules
     })

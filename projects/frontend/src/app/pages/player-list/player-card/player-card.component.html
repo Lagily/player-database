@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title style="display: flex;">
-    <img class="player-image" style="margin-right: 10px" [src]="_player.image" /><a href="#">{{ name(_player) }}</a>
+    <img class="player-image" style="margin-right: 10px" [src]="_player.image" />{{ name(_player) }}
   </mat-card-title>
   <mat-card-subtitle rtl>
     <mat-chip-list *ngIf="_player.tags" aria-label="tags">
@@ -27,9 +27,13 @@
 
         <mat-list role="list">
           <mat-list-item *ngFor="let entry of _player.timeline" role="listitem">
-            <span style="font-weight: bold" matLine>{{
-              entry.start | date: "y/MM"
-            }}</span>
+            <div matLine>
+              <span style="font-weight: bold">{{
+                entry.start | date: "y/MM"
+              }}</span> - <span style="font-weight: bold">{{
+                entry.end | date: "y/MM"
+              }}</span>
+            </div>
             <p matLine>{{ entry.content }}</p>
           </mat-list-item>
         </mat-list>
