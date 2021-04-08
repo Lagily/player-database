@@ -115,11 +115,72 @@ const players: Player[] = [
     gamepedia: "https://lol.gamepedia.com/Lagily",
     swiss: true,
     sesfMember: true
+  },
+  {
+    firstName: "Mahdi",
+    lastName: "Nasserzadeh",
+    nickName: "Pride",
+    image: "https://pbs.twimg.com/profile_images/1354750843019546626/VZZ_040s_400x400.jpg",
+    tags: ["LoL", "Top", "Pro Player"],
+    team: {
+      name: "Fnatic Rising",
+      id: "2",
+      logo: "assets/fnatic.svg"
+    },
+    timeline: [],
+    achievements: [
+      {
+        tournament: { name: "ESL Swiss", edition: "2019/2" },
+        impact: "participant",
+        rank: 1
+      },
+      {
+        tournament: { name: "ESL Swiss", edition: "2019/1" },
+        impact: "participant",
+        rank: 1
+      },
+      {
+        tournament: { name: "Switzerlan", edition: "2019" },
+        impact: "participant",
+        rank: 3
+      },
+      {
+        tournament: { name: "Polylan", edition: "2015" },
+        impact: "participant",
+        rank: 2
+      },
+      {
+        tournament: { name: "Polylan", edition: "2016" },
+        impact: "participant",
+        rank: 2
+      },
+      {
+        tournament: { name: "Polylan", edition: "2017" },
+        impact: "participant",
+        rank: 1
+      },
+      {
+        tournament: { name: "Polylan", edition: "2018" },
+        impact: "participant",
+        rank: 1
+      },
+      {
+        tournament: { name: "Polylan", edition: "2019" },
+        impact: "participant",
+        rank: 1
+      },
+      {
+        tournament: { name: "GameThat", edition: "2015" },
+        impact: "participant",
+        rank: 1
+      }
+    ],
+    twitter: "https://twitter.com/pride__lol",
+    instagram: "https://www.instagram.com/pride__lol/",
+    gamepedia: "https://lol.fandom.com/wiki/Pride_(Mahdi_Nasserzadeh)",
+    swiss: true,
+    sesfMember: false
   }
 ];
-
-for (let i = 0; i < 3; i++) {
-  players.push(players[0]);
-}
 
 export { players };

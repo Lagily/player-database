@@ -30,6 +30,10 @@ export class PlayerCardComponent implements OnInit {
   set player(player: Player) {
     this._player = player;
     this.setAchievements(player);
+
+    if (this._player.team?.logo) {
+      this._player.team.logo = require(this._player.team?.logo);
+    }
   }
 
   constructor() {}

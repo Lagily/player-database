@@ -1,6 +1,7 @@
 <mat-card>
   <mat-card-title style="display: flex;">
-    <img class="player-image" style="margin-right: 10px" [src]="_player.image" />{{ name(_player) }}
+    <img class="player-image" style="margin-right: 10px" [src]="_player.image" />
+    <span class="player-name">{{ name(_player) }}</span>
   </mat-card-title>
   <mat-card-subtitle rtl>
     <mat-chip-list *ngIf="_player.tags" aria-label="tags">
@@ -45,7 +46,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         
-        <span>Lagily has won {{_achievements.numberOfWins}} tournaments.</span>
+        <span>{{_player.nickName}} has won {{_achievements.numberOfWins}} tournaments.</span>
         <div class="achievements-list" style="padding-top: 5px;">
           <ng-container *ngFor="let achievement of _achievements.aggregatedAchievements">
             <span *ngIf="achievement.bronze.length + achievement.silver.length + achievement.gold.length > 0">

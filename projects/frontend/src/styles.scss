@@ -16,7 +16,6 @@
 @import "styles-reset.scss-theme";
 @import "./app/app/app.component.scss-theme";
 @import "./app/shared/big-input/big-input/big-input.component.scss-theme";
-@import "./app/pages/about/about/about.component.scss-theme";
 @import "./app/pages/examples/notifications/components/notifications.component.scss-theme";
 @import "./app/pages/examples/todos/components/todos-container.component.scss-theme";
 @import "./app/pages/examples/stock-market/components/stock-market-container.component.scss-theme";
@@ -27,7 +26,6 @@
 @mixin custom-components-theme($theme) {
   @include pldb-styles-reset-theme($theme);
   @include pldb-app-component-theme($theme);
-  @include pldb-about-component-theme($theme);
   @include pldb-big-input-component-theme($theme);
   @include pldb-notifications-component-theme($theme);
   @include pldb-todos-container-component-theme($theme);
